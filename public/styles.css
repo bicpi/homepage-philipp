@@ -209,8 +209,6 @@ a:hover { text-decoration-thickness: 2px; }
   cursor: pointer;
 }
 .button:hover { background: var(--clay); border-color: var(--clay); }
-.button--quiet { background: transparent; color: var(--ink); }
-.button--quiet:hover { background: transparent; color: var(--clay); }
 .linklike {
   padding: 0;
   border: 0;
