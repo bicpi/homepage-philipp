@@ -1,1 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#a8472a"/><text x="32" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="42" font-weight="600" fill="#efe9dd">P</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <style>
+    .bg { fill: #23201c; }
+    .p { fill: #efe9dd; }
+    .dot { fill: #e08a68; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #efe9dd; }
+      .p { fill: #23201c; }
+      .dot { fill: #a8472a; }
+    }
+  </style>
+  <rect class="bg" width="64" height="64" rx="14"/>
+  <path class="p" d="M35.08 24.47Q35.08 22.31 34.24 20.81Q33.4 19.32 31.52 18.54Q29.64 17.76 26.46 17.76H18.57L18.45 14.5H28.85Q33.57 14.5 36.45 15.79Q39.33 17.07 40.65 19.28Q41.97 21.49 41.97 24.27Q41.97 27.09 40.62 29.4Q39.27 31.71 36.41 33.08Q33.56 34.44 29.01 34.44H18.39L18.57 31.21H28.2Q30.24 31.21 31.78 30.45Q33.33 29.68 34.2 28.19Q35.08 26.71 35.08 24.47ZM23.01 14.5V45.75L26.94 47.13V48.5H12.23V47.13L16.15 45.75V17.25L12.23 15.87V14.5Z"/>
+  <circle class="dot" cx="48.37" cy="45.10" r="3.4"/>
+</svg>
