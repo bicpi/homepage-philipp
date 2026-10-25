@@ -247,36 +247,6 @@ p.prose + * { margin-top: 1.5rem; }
 .certs a:hover span { text-decoration: underline; text-decoration-color: var(--clay); }
 .certs img { flex: none; height: 4rem; width: auto; }
 
-/* Covers */
-.shelf { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 1rem 1.25rem; margin-top: 1.75rem; }
-.shelf img {
-  height: 7.5rem;
-  width: auto;
-  /* drop-shadow follows the real shape, also for transparent images */
-  filter: drop-shadow(0 1px 1px rgba(35, 32, 28, 0.3)) drop-shadow(0 8px 10px rgba(35, 32, 28, 0.22));
-}
-@media (prefers-reduced-motion: no-preference) {
-  .shelf img { transition: transform 0.2s ease; }
-  .shelf a:hover img { transform: translateY(-4px); }
-}
-@media (prefers-color-scheme: dark) {
-  .shelf img { filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.6)) drop-shadow(0 8px 10px rgba(0, 0, 0, 0.5)); }
-}
-.shelf + .timeline { margin-top: 2rem; }
-@media (max-width: 40rem) {
-  /* One swipeable row, bleeding to the screen edges. */
-  .shelf {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    margin-inline: calc(var(--gutter) * -1);
-    padding: 0.25rem var(--gutter) 1rem;
-    scroll-snap-type: x proximity;
-    scrollbar-width: none;
-  }
-  .shelf::-webkit-scrollbar { display: none; }
-  .shelf li { flex: none; scroll-snap-align: start; }
-}
-
 /* Dated lists */
 .timeline { margin-top: 1.5rem; }
 .timeline li {
@@ -294,6 +264,26 @@ p.prose + * { margin-top: 1.5rem; }
   .timeline time { padding-top: 0.15rem; }
 }
 #talks .row__body .timeline { margin-top: 0; }
+
+/* Publications: the cover sits right next to its entry */
+.timeline--covers li { align-items: center; }
+.cover { display: block; justify-self: start; line-height: 0; }
+.cover img {
+  height: 5.5rem;
+  width: auto;
+  filter: drop-shadow(0 1px 1px rgba(35, 32, 28, 0.3)) drop-shadow(0 6px 8px rgba(35, 32, 28, 0.2));
+}
+.cover img[src$=".svg"] { height: 4rem; margin-left: 0.4rem; }
+@media (prefers-color-scheme: dark) {
+  .cover img { filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.6)) drop-shadow(0 6px 8px rgba(0, 0, 0, 0.5)); }
+}
+@media (max-width: 39.99rem) {
+  .timeline--covers li { grid-template-columns: 4.75rem minmax(0, 1fr); column-gap: 1rem; }
+  .timeline--covers time { grid-column: 1 / -1; }
+}
+@media (min-width: 40rem) {
+  .timeline--covers li { grid-template-columns: 7.5rem 4.75rem minmax(0, 1fr); column-gap: 1.25rem; }
+}
 
 /* Contact */
 .contact__mail { font-family: var(--serif); font-size: 1.35rem; line-height: 1.3; }
