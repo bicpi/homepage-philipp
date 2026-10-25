@@ -111,15 +111,8 @@ a:hover { text-decoration-thickness: 2px; }
   gap: 1.5rem;
   min-height: 3.5rem;
 }
-.brand {
-  flex: none;
-  font-family: var(--serif);
-  font-size: 1.6rem;
-  font-weight: 600;
-  line-height: 1;
-  text-decoration: none;
-}
-.brand span { color: var(--clay); }
+.brand { flex: none; display: block; line-height: 0; }
+.brand img { display: block; width: 2rem; height: 2rem; }
 .site-nav {
   display: flex;
   gap: 1.5rem;
@@ -178,13 +171,6 @@ a:hover { text-decoration-thickness: 2px; }
   line-height: 1.4;
 }
 .hero__meta { margin-top: 1rem; color: var(--mute); }
-.hero__actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.75rem 1.5rem;
-  margin-top: 2rem;
-}
 .hero__portrait { display: block; justify-self: end; width: 100%; max-width: 34rem; }
 .hero__portrait img {
   width: 100%;
