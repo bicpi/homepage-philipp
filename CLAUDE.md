@@ -17,7 +17,7 @@ Preview locally with `python3 -m http.server -d public` (http://localhost:8000).
 ## Site conventions
 
 - Design: warm paper background, Newsreader (serif, headings) and Hanken Grotesk (sans, body), both self-hosted variable fonts in `public/fonts/` (OFL). Colors and type live as CSS variables in `:root` of `styles.css`. Sections use a hanging heading column (`.row` / `.row__head` / `.row__body`); dated lists use `.timeline`.
-- The portrait is blended into the page with `mix-blend-mode: multiply`; it relies on the photo's white background. In dark mode it sits on a light panel for that reason. Dark mode is automatic (`prefers-color-scheme`), with its own variable set at the top of `styles.css`.
+- The portrait is blended into the page with `mix-blend-mode: multiply`; it relies on the photo's white background. In dark mode a transparent cutout (`img/philipp-cutout.webp`, chosen via `<source media="(prefers-color-scheme: dark)">`) is used instead. Dark mode is automatic (`prefers-color-scheme`), with its own variable set at the top of `styles.css`.
 - Book and magazine covers (`public/img/covers/`) are small (about 130 px wide); keep them displayed at a modest size.
 - The site must stay mobile friendly: check every change at 390 px and 1280 px wide, in light and dark mode, and keep the page free of horizontal scrolling.
 - `site.js` does three things only: decodes the obfuscated email (`a.mail` with `data-user`/`data-domain`, never write the address into the HTML), highlights the nav link of the section in view, and loads Google Analytics only after consent. Keep it dependency-free.

@@ -189,9 +189,17 @@ a:hover { text-decoration-thickness: 2px; }
 }
 
 @media (prefers-color-scheme: dark) {
-  .hero__portrait { background: #efe9dd; border-radius: 1.25rem 1.25rem 0 0; overflow: hidden; }
-  .hero__portrait img { -webkit-mask-image: none; mask-image: none; filter: grayscale(1) brightness(1.04) contrast(1.1); }
+  /* Dark mode uses a cutout (see index.html), so no blending is needed. */
+  .hero__portrait img {
+    mix-blend-mode: normal;
+    filter: brightness(0.94) contrast(1.05);
+    -webkit-mask-image: linear-gradient(to bottom, #000 80%, transparent);
+    -webkit-mask-composite: source-over;
+    mask-image: linear-gradient(to bottom, #000 80%, transparent);
+    mask-composite: add;
+  }
 }
+
 
 /* Buttons */
 .button {
@@ -303,7 +311,7 @@ p.prose + * { margin-top: 1.5rem; }
 #talks .row__body .timeline { margin-top: 0; }
 
 /* Contact */
-.contact__mail { font-family: var(--serif); font-size: clamp(1.5rem, 4vw, 2.25rem); line-height: 1.2; }
+.contact__mail { font-family: var(--serif); font-size: 1.35rem; line-height: 1.3; }
 
 /* Footer */
 .site-footer { border-top: 1px solid var(--line); padding-block: 1.75rem 2.5rem; color: var(--mute); font-size: 0.95rem; }
