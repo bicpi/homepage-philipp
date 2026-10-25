@@ -1,0 +1,96 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Only list what would be uploaded
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    # Deploys are off until the repository variable DEPLOY_ENABLED is 'true'.
+    # Manual dry runs are always allowed (they only list what would change).
+    if: vars.DEPLOY_ENABLED == 'true' || (github.event_name == 'workflow_dispatch' && inputs.dry_run)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    environment: production
+    env:
+      # Pushes to main deploy for real; manual runs default to a dry run.
+      DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run || 'false' }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Prepare site files
+        run: |
+          # Only public/ is deployed. Never mirror an empty or broken tree with --delete.
+          test -s public/index.html || { echo "::error::public/index.html missing or empty"; exit 1; }
+
+          # Invisible marker the post-deploy check looks for (runner copy only).
+          printf '\n<!-- deploy %s -->\n' "$GITHUB_SHA" >> public/index.html
+
+      - name: Install lftp
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+
+      - name: Upload via SFTP
+        env:
+          SFTP_KEY: ${{ secrets.SFTP_PRIVATE_KEY }}
+          SFTP_KNOWN_HOSTS: ${{ secrets.SFTP_KNOWN_HOSTS }}
+          SFTP_HOST: ${{ secrets.SFTP_HOST }}
+          SFTP_USER: ${{ secrets.SFTP_USER }}
+          SFTP_REMOTE_DIR: ${{ vars.SFTP_REMOTE_DIR }}
+        run: |
+          # With --delete, an empty value must never reach lftp.
+          : "${SFTP_KEY:?SFTP_PRIVATE_KEY is empty}"
+          : "${SFTP_KNOWN_HOSTS:?SFTP_KNOWN_HOSTS is empty}"
+          : "${SFTP_HOST:?SFTP_HOST is empty}"
+          : "${SFTP_USER:?SFTP_USER is empty}"
+          : "${SFTP_REMOTE_DIR:?SFTP_REMOTE_DIR is empty}"
+          [ "$SFTP_REMOTE_DIR" != "/" ] || { echo "::error::SFTP_REMOTE_DIR must not be /"; exit 1; }
+
+          umask 077
+          printf '%s\n' "$SFTP_KEY" > "$RUNNER_TEMP/key"
+          printf '%s\n' "$SFTP_KNOWN_HOSTS" > "$RUNNER_TEMP/known_hosts"
+
+          flags="--reverse --delete --verbose --parallel=2"
+          if [ "$DRY_RUN" = "true" ]; then flags="$flags --dry-run"; fi
+
+          lftp <<EOF
+          set cmd:fail-exit yes
+          set net:timeout 20
+          set net:max-retries 2
+          set sftp:auto-confirm no
+          set sftp:connect-program "ssh -a -x -i $RUNNER_TEMP/key -o BatchMode=yes -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile=$RUNNER_TEMP/known_hosts -o ConnectTimeout=20 -o ServerAliveInterval=15"
+          open -u "$SFTP_USER",unused sftp://$SFTP_HOST
+          mirror $flags public "$SFTP_REMOTE_DIR"
+          bye
+          EOF
+
+      - name: Verify live site
+        if: env.DRY_RUN != 'true'
+        env:
+          SITE_URL: ${{ vars.SITE_URL }}
+        run: |
+          : "${SITE_URL:?SITE_URL is empty}"
+          for attempt in 1 2 3 4 5; do
+            if curl -fsS -H 'Cache-Control: no-cache' "$SITE_URL/?v=$GITHUB_SHA" | grep -q "<!-- deploy $GITHUB_SHA -->"; then
+              echo "Live site serves $GITHUB_SHA"
+              exit 0
+            fi
+            echo "Attempt $attempt: marker not live yet"
+            sleep 5
+          done
+          echo "::error::Live site does not contain deploy marker $GITHUB_SHA"
+          exit 1
