@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-Static personal website of Philipp Rieber (https://philipp-rieber.net), a modernized rewrite of an old PHP/jQuery site. English at `/`; a German version at `/de/` is planned. Plain HTML, one hand-written CSS file and a small vanilla JS file. No build step, package manager, Tailwind, tests or linter.
+Static personal website of Philipp Rieber (https://philipp-rieber.net), a modernized rewrite of an old PHP/jQuery site. English only. Plain HTML, one hand-written CSS file and a small vanilla JS file. No build step, package manager, Tailwind, tests or linter.
 
 The repo is **public**. Never put hosting details, credentials or infrastructure specifics into any committed file, including README, CLAUDE.md, commit messages and PR descriptions.
 
@@ -17,7 +17,9 @@ Preview locally with `python3 -m http.server -d public` (http://localhost:8000).
 ## Site conventions
 
 - Design: warm paper background, Newsreader (serif, headings) and Hanken Grotesk (sans, body), both self-hosted variable fonts in `public/fonts/` (OFL). Colors and type live as CSS variables in `:root` of `styles.css`. Sections use a hanging heading column (`.row` / `.row__head` / `.row__body`); dated lists use `.timeline`.
-- The portrait is blended into the page with `mix-blend-mode: multiply`; it relies on the photo's white background and the light paper color.
+- The portrait is blended into the page with `mix-blend-mode: multiply`; it relies on the photo's white background. In dark mode it sits on a light panel for that reason. Dark mode is automatic (`prefers-color-scheme`), with its own variable set at the top of `styles.css`.
+- Book and magazine covers (`public/img/covers/`) are small (about 130 px wide); keep them displayed at a modest size.
+- The site must stay mobile friendly: check every change at 390 px and 1280 px wide, in light and dark mode, and keep the page free of horizontal scrolling.
 - `site.js` does three things only: decodes the obfuscated email (`a.mail` with `data-user`/`data-domain`, never write the address into the HTML), highlights the nav link of the section in view, and loads Google Analytics only after consent. Keep it dependency-free.
 - Google Analytics must never load before the visitor allows it (consent notice in the page, choice in `localStorage`). Do not add any other third-party request, cookie or tracker.
 - Old URLs must keep working: `/talks/*.pdf`, `/downloads/*.pdf` and `/imprint-and-privacy` (a folder with an `index.html`). Do not rename or remove these.

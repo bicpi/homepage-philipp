@@ -37,6 +37,17 @@
   color-scheme: light;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #1c1a17;
+    --ink: #ece6da;
+    --mute: #a39b8d;
+    --line: #3a352e;
+    --clay: #e08a68;
+    color-scheme: dark;
+  }
+}
+
 *, *::before, *::after { box-sizing: border-box; }
 
 html {
@@ -166,15 +177,20 @@ a:hover { text-decoration-thickness: 2px; }
   /* The photo has a white wall: multiply melts it into the paper. */
   mix-blend-mode: multiply;
   filter: grayscale(1) brightness(1.1) contrast(1.22);
-  /* Fade the edges so the photo never reads as a rectangle. */
+  /* A soft vignette keeps the figure floating and fades out the wall shadow. */
   -webkit-mask-image:
-    linear-gradient(to bottom, transparent, #000 10%, #000 78%, transparent),
-    linear-gradient(to right, transparent, #000 18%, #000 92%, transparent);
+    radial-gradient(ellipse 52% 60% at 62% 50%, #000 48%, transparent 100%),
+    linear-gradient(to bottom, #000 80%, transparent);
   -webkit-mask-composite: source-in;
   mask-image:
-    linear-gradient(to bottom, transparent, #000 10%, #000 78%, transparent),
-    linear-gradient(to right, transparent, #000 18%, #000 92%, transparent);
+    radial-gradient(ellipse 52% 60% at 62% 50%, #000 48%, transparent 100%),
+    linear-gradient(to bottom, #000 80%, transparent);
   mask-composite: intersect;
+}
+
+@media (prefers-color-scheme: dark) {
+  .hero__portrait { background: #efe9dd; border-radius: 1.25rem 1.25rem 0 0; overflow: hidden; }
+  .hero__portrait img { -webkit-mask-image: none; mask-image: none; filter: grayscale(1) brightness(1.04) contrast(1.1); }
 }
 
 /* Buttons */
@@ -225,6 +241,7 @@ h3.row__head { font-size: 1.2rem; color: var(--mute); }
 .prose { max-width: var(--measure); }
 .prose p + p { margin-top: 1em; }
 p.prose + * { margin-top: 1.5rem; }
+.nowrap { white-space: nowrap; }
 
 /* Skills */
 .skills { display: flex; flex-wrap: wrap; gap: 0.3rem 1.1rem; }
@@ -238,6 +255,36 @@ p.prose + * { margin-top: 1.5rem; }
 .certs a { display: flex; align-items: center; gap: 1rem; max-width: 20rem; text-decoration: none; }
 .certs a:hover span { text-decoration: underline; text-decoration-color: var(--clay); }
 .certs img { flex: none; height: 4rem; width: auto; }
+
+/* Covers */
+.shelf { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 1rem 1.25rem; margin-top: 1.75rem; }
+.shelf img {
+  height: 7.5rem;
+  width: auto;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(35, 32, 28, 0.3), 0 10px 18px -10px rgba(35, 32, 28, 0.5);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .shelf img { transition: transform 0.2s ease; }
+  .shelf a:hover img { transform: translateY(-4px); }
+}
+@media (prefers-color-scheme: dark) {
+  .shelf img { box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6), 0 10px 18px -10px rgba(0, 0, 0, 0.8); }
+}
+.shelf + .timeline { margin-top: 2rem; }
+@media (max-width: 40rem) {
+  /* One swipeable row, bleeding to the screen edges. */
+  .shelf {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin-inline: calc(var(--gutter) * -1);
+    padding: 0.25rem var(--gutter) 1rem;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+  }
+  .shelf::-webkit-scrollbar { display: none; }
+  .shelf li { flex: none; scroll-snap-align: start; }
+}
 
 /* Dated lists */
 .timeline { margin-top: 1.5rem; }
@@ -297,7 +344,12 @@ p.prose + * { margin-top: 1.5rem; }
   .hero { grid-template-columns: 1fr; }
   .hero__portrait { justify-self: center; max-width: 18rem; }
   .site-header__inner { gap: 1rem; }
-  .site-nav { gap: 1.1rem; }
+  .site-nav {
+    gap: 1.1rem;
+    padding-right: 1.75rem;
+    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 1.75rem), transparent);
+    mask-image: linear-gradient(to right, #000 calc(100% - 1.75rem), transparent);
+  }
 }
 
 /* Imprint & privacy page */
