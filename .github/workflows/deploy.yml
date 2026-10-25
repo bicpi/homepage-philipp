@@ -19,9 +19,6 @@ concurrency:
 
 jobs:
   deploy:
-    # Deploys are off until the repository variable DEPLOY_ENABLED is 'true'.
-    # Manual dry runs are always allowed (they only list what would change).
-    if: vars.DEPLOY_ENABLED == 'true' || (github.event_name == 'workflow_dispatch' && inputs.dry_run)
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     environment: production

@@ -30,8 +30,7 @@ Preview locally with `python3 -m http.server -d public` (http://localhost:8000).
 ## Workflow and deployment
 
 - `main` is protected: no direct pushes. Work on a branch, open a PR, and squash-merge it (the only enabled merge method).
-- Merging to `main` deploys `public/` through `.github/workflows/deploy.yml`, mirroring it exactly: files removed from `public/` disappear from the live site, and so does anything else in the target folder.
-- Deployment is gated by the repository variable `DEPLOY_ENABLED`: pushes to `main` only deploy while it is `true`, otherwise the job is skipped; a manual dry run works either way. Never enable it or change the gate without being asked. Before the first real deploy, back up the remote folder and read a dry run started from `main`.
+- Merging to `main` deploys `public/` through `.github/workflows/deploy.yml`, mirroring it exactly: files removed from `public/` disappear from the live site, and so does anything else in the target folder. Every merge goes live immediately, so check the PR carefully; a manual run (Actions, Deploy) defaults to a dry run that only lists what would change.
 - The workflow appends an invisible `<!-- deploy <sha> -->` marker to `index.html` on the CI runner to verify the deploy. Never commit that marker.
 - The workflow depends only on `public/` and `public/index.html`. Keep it free of references to specific pages or files, and if `public/` is renamed, change the workflow in the same PR.
 - Actions are pinned to commit SHAs with a version comment; pin any new action the same way. Dependabot proposes updates.
