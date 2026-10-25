@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://philipp-rieber.net/sitemap.xml

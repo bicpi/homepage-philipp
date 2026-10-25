@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-Static personal website of Philipp Rieber. Currently a placeholder page; real content follows. No build step, package manager, tests or linter unless this file says otherwise.
+Static personal website of Philipp Rieber (https://philipp-rieber.net), a modernized rewrite of an old PHP/jQuery site. English at `/`; a German version at `/de/` is planned. Plain HTML, one hand-written CSS file and a small vanilla JS file. No build step, package manager, Tailwind, tests or linter.
 
 The repo is **public**. Never put hosting details, credentials or infrastructure specifics into any committed file, including README, CLAUDE.md, commit messages and PR descriptions.
 
@@ -12,7 +12,17 @@ The repo is **public**. Never put hosting details, credentials or infrastructure
 
 `public/` is the entire website and the only thing ever published. Everything outside it (README, CLAUDE.md, `.github/`) stays out of production, so new site files must go into `public/`.
 
-Preview locally with `python3 -m http.server -d public` (http://localhost:8000).
+Preview locally with `python3 -m http.server -d public` (http://localhost:8000). Asset URLs are root-absolute (`/styles.css`, `/img/...`), so the site must be served from a domain root.
+
+## Site conventions
+
+- Design: warm paper background, Newsreader (serif, headings) and Hanken Grotesk (sans, body), both self-hosted variable fonts in `public/fonts/` (OFL). Colors and type live as CSS variables in `:root` of `styles.css`. Sections use a hanging heading column (`.row` / `.row__head` / `.row__body`); dated lists use `.timeline`.
+- The portrait is blended into the page with `mix-blend-mode: multiply`; it relies on the photo's white background and the light paper color.
+- `site.js` does three things only: decodes the obfuscated email (`a.mail` with `data-user`/`data-domain`, never write the address into the HTML), highlights the nav link of the section in view, and loads Google Analytics only after consent. Keep it dependency-free.
+- Google Analytics must never load before the visitor allows it (consent notice in the page, choice in `localStorage`). Do not add any other third-party request, cookie or tracker.
+- Old URLs must keep working: `/talks/*.pdf`, `/downloads/*.pdf` and `/imprint-and-privacy` (a folder with an `index.html`). Do not rename or remove these.
+- Update `sitemap.xml` when adding or removing a page.
+- The Impressum and privacy text in `public/imprint-and-privacy/` is legal content. Do not change its wording unless asked.
 
 ## Workflow and deployment
 
