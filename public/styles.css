@@ -128,6 +128,18 @@ a:hover { text-decoration-thickness: 2px; }
   font-size: 0.95rem;
 }
 .site-nav::-webkit-scrollbar { display: none; }
+.site-nav { margin-left: auto; min-width: 0; }
+.social { display: flex; flex: none; gap: 0.1rem; margin-right: -0.5rem; }
+.social a {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--mute);
+  border-radius: 50%;
+}
+.social a:hover { color: var(--ink); }
+.social svg { width: 1.2rem; height: 1.2rem; fill: currentColor; }
 .site-nav a {
   flex: none;
   padding-block: 0.25rem;
