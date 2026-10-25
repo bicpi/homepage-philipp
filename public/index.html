@@ -18,14 +18,27 @@
   <meta property="og:title" content="Philipp Rieber | Full Stack Software Engineer | Munich" />
   <meta property="og:description" content="Homepage of Philipp Rieber, full stack software engineer from Munich." />
   <meta property="og:url" content="https://philipp-rieber.net/" />
-  <meta property="og:image" content="https://philipp-rieber.net/img/philipp.jpg" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:image" content="https://philipp-rieber.net/img/og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Philipp Rieber, full stack software engineer from Munich" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
 
   <link rel="preload" href="/fonts/newsreader-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/hanken-grotesk.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/styles.css" />
   <script src="/site.js" defer></script>
 </head>
 <body>
+  <a class="skip" href="#top">Skip to content</a>
+  <div class="consent" id="consent" role="region" aria-label="Analytics consent" hidden>
+    <p>I use Google Analytics to count visits. It only loads if you allow it. <a href="/imprint-and-privacy/#analytics">Details</a></p>
+    <div class="consent__actions">
+      <button type="button" class="button" data-consent="granted">Allow</button>
+      <button type="button" class="button" data-consent="denied">Decline</button>
+    </div>
+  </div>
   <header class="site-header">
     <div class="wrap site-header__inner">
       <a class="brand" href="#top" aria-label="Philipp Rieber, back to top"><img src="/favicon.svg" width="32" height="32" alt="" /></a>
@@ -35,16 +48,16 @@
         <a href="#publications">Publications</a>
         <a href="#talks">Talks</a>
         <a href="#contact">Contact</a>
-        <a href="http://blog.philipp-rieber.net" rel="noopener">Blog</a>
+        <a href="https://blog.philipp-rieber.net/" rel="noopener">Blog</a>
       </nav>
       <p class="social">
         <a href="https://github.com/bicpi" rel="noopener" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
-        <a href="http://www.linkedin.com/pub/philipp-rieber/1a/669/539" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a href="https://www.linkedin.com/in/philipp-rieber/" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
       </p>
     </div>
   </header>
 
-  <main id="top">
+  <main id="top" tabindex="-1">
     <div class="wrap">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero__text">
@@ -74,7 +87,7 @@
         <div class="row">
           <h2 class="row__head">Jobs</h2>
           <div class="row__body prose">
-            <p>I’m working as a Staff Software Engineer at <a href="https://ottonova.de/" rel="noopener">ottonova</a>, the first digital private health insurance in Germany. Before that, I worked at Paymill (payments) and at <a href="http://inviqa.com/" rel="noopener">Inviqa</a> (agency). I evaluated an InsurTech startup idea at <a href="https://www.werk1.com/" rel="noopener">WERK1</a> and worked for seven years as a web developer, team lead and deputy managing director of an internet agency (Onemedia GmbH). I also advise and support a few other projects.</p>
+            <p>I’m working as a Staff Software Engineer at <a href="https://www.ottonova.de/" rel="noopener">ottonova</a>, the first digital private health insurance in Germany. Before that, I worked at Paymill (payments) and at <a href="https://inviqa.com/" rel="noopener">Inviqa</a> (agency). I evaluated an InsurTech startup idea at <a href="https://www.werk1.com/" rel="noopener">WERK1</a> and worked for seven years as a web developer, team lead and deputy managing director of an internet agency (Onemedia GmbH). I also advise and support a few other projects.</p>
           </div>
         </div>
       </section>
@@ -234,16 +247,16 @@
           <div class="row__body">
             <ul class="certs">
               <li>
-                <a href="https://connect.symfony.com/profile/bicpi" rel="noopener">
+                <a class="cert" href="https://connect.symfony.com/profile/bicpi" rel="noopener">
                   <img src="/img/certification-symfony.png" width="64" height="64" alt="" />
                   <span>SensioLabs Certified Symfony Developer (Expert)</span>
                 </a>
               </li>
               <li>
-                <a href="https://www.zend-zce.com/en/yellow-pages/ZEND003438" rel="noopener">
+                <span class="cert">
                   <img src="/img/certification-php.jpg" width="69" height="64" alt="" />
                   <span>Zend Certified PHP Engineer</span>
-                </a>
+                </span>
               </li>
             </ul>
           </div>
@@ -251,19 +264,19 @@
         <div class="row">
           <h3 class="row__head">Conferences</h3>
           <div class="row__body prose">
-            <p>I love to attend software development conferences and workshops. For example, I attended <a href="http://live.symfony.com" rel="noopener">Symfony Live</a> and the Symfony Day several times, as well as some roadshows, presentations or trainings from Adobe, Amazon and Microsoft.</p>
+            <p>I love to attend software development conferences and workshops. For example, I attended <a href="https://live.symfony.com/" rel="noopener">Symfony Live</a> and the Symfony Day several times, as well as some roadshows, presentations or trainings from Adobe, Amazon and Microsoft.</p>
           </div>
         </div>
         <div class="row">
           <h3 class="row__head">User groups</h3>
           <div class="row__body prose">
-            <p>I am co-organizing the <a href="http://www.meetup.com/sfugmunich/" rel="noopener">Symfony User Group Munich</a> and I rarely miss a meetup of the <a href="http://www.meetup.com/phpugmunich/" rel="noopener">PHP User Group Munich</a>. I’m also an occasional speaker at these user groups.</p>
+            <p>I am co-organizing the <a href="https://www.meetup.com/sfugmunich/" rel="noopener">Symfony User Group Munich</a> and I rarely miss a meetup of the <a href="https://www.meetup.com/phpugmunich/" rel="noopener">PHP User Group Munich</a>. I’m also an occasional speaker at these user groups.</p>
           </div>
         </div>
         <div class="row">
           <h3 class="row__head">Contributions</h3>
           <div class="row__body prose">
-            <p>On <a href="https://github.com/bicpi" rel="noopener">GitHub</a>, I’m maintaining small open source libraries and bundles. From time to time I contribute to other projects, preferably for the <a href="https://github.com/symfony/symfony-docs" rel="noopener">Symfony documentation</a>. I also like to participate in discussions on GitHub, <a href="http://stackoverflow.com/users/1182743/philipp-rieber" rel="noopener">StackOverflow</a> or various <a href="https://disqus.com/home/user/bicpi" rel="noopener">blogs and forums</a>.</p>
+            <p>On <a href="https://github.com/bicpi" rel="noopener">GitHub</a>, I’m maintaining small open source libraries and bundles. From time to time I contribute to other projects, preferably for the <a href="https://github.com/symfony/symfony-docs" rel="noopener">Symfony documentation</a>. I also like to participate in discussions on GitHub, <a href="https://stackoverflow.com/users/1182743/philipp-rieber" rel="noopener">StackOverflow</a> or various <a href="https://disqus.com/home/user/bicpi/" rel="noopener">blogs and forums</a>.</p>
           </div>
         </div>
       </section>
@@ -272,12 +285,12 @@
         <div class="row">
           <h2 class="row__head" id="publications-title">Publications</h2>
           <div class="row__body">
-            <p class="prose">Every now and then I write articles and books about software development or translate from English. In everyday work I’m also writing a lot for case studies, references or documentation. Occasionally I blog at <a class="nowrap" href="http://blog.philipp-rieber.net" rel="noopener">blog.philipp-rieber.net</a>.</p>
+            <p class="prose">Every now and then I write articles and books about software development or translate from English. In everyday work I’m also writing a lot for case studies, references or documentation. Occasionally I blog at <a class="nowrap" href="https://blog.philipp-rieber.net/" rel="noopener">blog.philipp-rieber.net</a>.</p>
             <ol class="timeline timeline--covers">
               <li>
                 <time datetime="2021">2021</time>
                 <a class="cover" href="https://www.amazon.de/PHP-MySQL-Schnelleinstieg-Programmieren-Vorkenntnisse/dp/3747503950" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/img/covers/schnelleinstieg-2021.jpg" width="130" height="184" alt="" loading="lazy" /></a>
-                <p><a href="https://www.amazon.de/PHP-MySQL-Schnelleinstieg-Programmieren-Vorkenntnisse/dp/3747503950" rel="noopener">PHP &amp; MySQL Schnelleinstieg</a><br /><span>1st edition, ISBN 978-3747503959 · <a href="/downloads/PHP-MySQL-Schnelleinstieg-Glossar.pdf">Free glossary download</a></span></p>
+                <p><a lang="de" href="https://www.amazon.de/PHP-MySQL-Schnelleinstieg-Programmieren-Vorkenntnisse/dp/3747503950" rel="noopener">PHP &amp; MySQL Schnelleinstieg</a><br /><span>1st edition, ISBN 978-3747503959 · <a href="/downloads/PHP-MySQL-Schnelleinstieg-Glossar.pdf">Free glossary download</a></span></p>
               </li>
               <li>
                 <time datetime="2015-08">Aug 2015</time>
@@ -287,32 +300,32 @@
               <li>
                 <time datetime="2015-07">Jul 2015</time>
                 <a class="cover" href="https://entwickler.de/magazine-ebooks/php-magazin/php-magazin-52015" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/img/covers/phpmagazin-2015-05.jpg" width="130" height="182" alt="" loading="lazy" /></a>
-                <p><a href="https://entwickler.de/magazine-ebooks/php-magazin/php-magazin-52015" rel="noopener">Ionic – Hybrid-Apps mit dem JavaScript-Framework</a><br /><span>German PHPmagazin 5.15, 7 pages · <a href="https://entwickler.de/javascript/comeback-der-hybriden" rel="noopener">Teaser</a></span></p>
+                <p><a lang="de" href="https://entwickler.de/magazine-ebooks/php-magazin/php-magazin-52015" rel="noopener">Ionic – Hybrid-Apps mit dem JavaScript-Framework</a><br /><span>German PHPmagazin 5.15, 7 pages · <a href="https://entwickler.de/javascript/comeback-der-hybriden" rel="noopener">Teaser</a></span></p>
               </li>
               <li>
                 <time datetime="2015-03">Mar 2015</time>
                 <a class="cover" href="https://entwickler.de/magazine-ebooks/php-magazin/php-magazin-32015" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/img/covers/phpmagazin-2015-03.jpg" width="130" height="181" alt="" loading="lazy" /></a>
-                <p><a href="https://entwickler.de/magazine-ebooks/php-magazin/php-magazin-32015" rel="noopener">Alice und Faker</a><br /><span>German PHPmagazin 3.15, cover story, 8 pages · <a href="https://entwickler.de/php/alice-im-fakerland" rel="noopener">Teaser</a></span></p>
+                <p><a lang="de" href="https://entwickler.de/magazine-ebooks/php-magazin/php-magazin-32015" rel="noopener">Alice und Faker</a><br /><span>German PHPmagazin 3.15, cover story, 8 pages · <a href="https://entwickler.de/php/alice-im-fakerland" rel="noopener">Teaser</a></span></p>
               </li>
               <li>
                 <time datetime="2015-03">Mar 2015</time>
-                <a class="cover" href="http://discoveringdocker.com/de" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/img/covers/docker-entdecken.png" width="152" height="184" alt="" loading="lazy" /></a>
-                <p><a href="http://discoveringdocker.com/de" rel="noopener">Docker Entdecken</a><br /><span>German translation of the e-book by Geoffrey Bachelet</span></p>
+                <span class="cover" aria-hidden="true"><img src="/img/covers/docker-entdecken.png" width="152" height="184" alt="" loading="lazy" /></span>
+                <p><span lang="de">Docker Entdecken</span><br /><span>German translation of the e-book by Geoffrey Bachelet</span></p>
               </li>
               <li>
                 <time datetime="2009">2009</time>
-                <a class="cover" href="http://www.amazon.de/Dynamische-Webseiten-Praxis-JavaScript-Professional/dp/3826617827" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/img/covers/dynamische-webseiten-2009.jpg" width="130" height="180" alt="" loading="lazy" /></a>
-                <p><a href="http://www.amazon.de/Dynamische-Webseiten-Praxis-JavaScript-Professional/dp/3826617827" rel="noopener">Dynamische Webseiten in der Praxis</a><br /><span>2nd edition, completely revised, ISBN 978-3826617829</span></p>
+                <a class="cover" href="https://www.amazon.de/Dynamische-Webseiten-Praxis-JavaScript-Professional/dp/3826617827" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/img/covers/dynamische-webseiten-2009.jpg" width="130" height="180" alt="" loading="lazy" /></a>
+                <p><a lang="de" href="https://www.amazon.de/Dynamische-Webseiten-Praxis-JavaScript-Professional/dp/3826617827" rel="noopener">Dynamische Webseiten in der Praxis</a><br /><span>2nd edition, completely revised, ISBN 978-3826617829</span></p>
               </li>
               <li>
                 <time datetime="2007">2007</time>
-                <a class="cover" href="http://www.amazon.de/PHP-MySQL-Kochbuch-L%C3%B6sungen-Practices/dp/3826616804" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/img/covers/kochbuch-2007.jpg" width="130" height="181" alt="" loading="lazy" /></a>
-                <p><a href="http://www.amazon.de/PHP-MySQL-Kochbuch-L%C3%B6sungen-Practices/dp/3826616804" rel="noopener">PHP5 und MySQL5 – Das Kochbuch</a><br /><span>1st edition, ISBN 978-3826616808</span></p>
+                <a class="cover" href="https://www.amazon.de/PHP-MySQL-Kochbuch-L%C3%B6sungen-Practices/dp/3826616804" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/img/covers/kochbuch-2007.jpg" width="130" height="181" alt="" loading="lazy" /></a>
+                <p><a lang="de" href="https://www.amazon.de/PHP-MySQL-Kochbuch-L%C3%B6sungen-Practices/dp/3826616804" rel="noopener">PHP5 und MySQL5 – Das Kochbuch</a><br /><span>1st edition, ISBN 978-3826616808</span></p>
               </li>
               <li>
                 <time datetime="2006">2006</time>
-                <a class="cover" href="http://www.amazon.de/Dynamische-Webseiten-Praxis-JavaScript-Eclipse/dp/3826616154" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/img/covers/dynamische-webseiten-2006.jpg" width="130" height="184" alt="" loading="lazy" /></a>
-                <p><a href="http://www.amazon.de/Dynamische-Webseiten-Praxis-JavaScript-Eclipse/dp/3826616154" rel="noopener">Dynamische Webseiten in der Praxis</a><br /><span>1st edition, ISBN 978-3826616150</span></p>
+                <a class="cover" href="https://www.amazon.de/Dynamische-Webseiten-Praxis-JavaScript-Eclipse/dp/3826616154" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/img/covers/dynamische-webseiten-2006.jpg" width="130" height="184" alt="" loading="lazy" /></a>
+                <p><a lang="de" href="https://www.amazon.de/Dynamische-Webseiten-Praxis-JavaScript-Eclipse/dp/3826616154" rel="noopener">Dynamische Webseiten in der Praxis</a><br /><span>1st edition, ISBN 978-3826616150</span></p>
               </li>
             </ol>
           </div>
@@ -326,7 +339,7 @@
             <ol class="timeline">
               <li>
                 <time datetime="2016-12-03">3 Dec 2016</time>
-                <p><a href="https://speakerdeck.com/bicpi/symfony-in-plain-english" rel="noopener">Symfony in Plain English</a><br /><span><a href="http://dcmuc16.drupalcamp.de/sessions/symfony-plain-english.html" rel="noopener">DrupalCamp Munich 2016</a></span></p>
+                <p><a href="https://speakerdeck.com/bicpi/symfony-in-plain-english" rel="noopener">Symfony in Plain English</a><br /><span>DrupalCamp Munich 2016</span></p>
               </li>
               <li>
                 <time datetime="2016-04-28">28 Apr 2016</time>
@@ -403,12 +416,5 @@
     </div>
   </footer>
 
-  <div class="consent" id="consent" role="dialog" aria-labelledby="consent-title" hidden>
-    <p id="consent-title">I use Google Analytics to count visits. It only loads if you allow it. <a href="/imprint-and-privacy/#analytics">Details</a></p>
-    <div class="consent__actions">
-      <button type="button" class="button" data-consent="granted">Allow</button>
-      <button type="button" class="button" data-consent="denied">Decline</button>
-    </div>
-  </div>
 </body>
 </html>

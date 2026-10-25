@@ -7,13 +7,6 @@
   font-display: swap;
 }
 @font-face {
-  font-family: 'Newsreader';
-  src: url('/fonts/newsreader-italic.woff2') format('woff2');
-  font-weight: 200 800;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
   font-family: 'Hanken Grotesk';
   src: url('/fonts/hanken-grotesk.woff2') format('woff2');
   font-weight: 100 900;
@@ -95,6 +88,24 @@ a:hover { text-decoration-thickness: 2px; }
   padding-inline: var(--gutter);
 }
 
+/* Skip link: visible only when focused */
+.skip {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 30;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 0.95rem;
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+.skip:focus { transform: none; }
+
+main:focus { outline: none; }
+
 /* Header */
 .site-header {
   position: sticky;
@@ -141,7 +152,7 @@ a:hover { text-decoration-thickness: 2px; }
   border-bottom: 2px solid transparent;
 }
 .site-nav a:hover { color: var(--ink); }
-.site-nav a[aria-current="true"] {
+.site-nav a[aria-current="location"] {
   color: var(--ink);
   border-bottom-color: var(--clay);
 }
@@ -243,8 +254,8 @@ p.prose + * { margin-top: 1.5rem; }
 
 /* Certifications */
 .certs { display: flex; flex-wrap: wrap; gap: 1.5rem 2.5rem; }
-.certs a { display: flex; align-items: center; gap: 1rem; max-width: 20rem; text-decoration: none; }
-.certs a:hover span { text-decoration: underline; text-decoration-color: var(--clay); }
+.certs .cert { display: flex; align-items: center; gap: 1rem; max-width: 20rem; text-decoration: none; }
+.certs a.cert:hover span { text-decoration: underline; text-decoration-color: var(--clay); }
 .certs img { flex: none; height: 4rem; width: auto; }
 
 /* Dated lists */
@@ -321,7 +332,7 @@ p.prose + * { margin-top: 1.5rem; }
 .consent__actions { display: flex; gap: 0.5rem; }
 
 /* Narrow screens */
-@media (max-width: 40rem) {
+@media (max-width: 39.99rem) {
   .hero { grid-template-columns: 1fr; }
   .hero__portrait { justify-self: center; max-width: 22rem; }
   .site-header__inner { gap: 1rem; }
