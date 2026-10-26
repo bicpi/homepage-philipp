@@ -197,35 +197,6 @@ main:focus { outline: none; }
 
 
 
-/* Buttons */
-.button {
-  display: inline-block;
-  padding: 0.65rem 1.25rem;
-  border: 1px solid var(--ink);
-  border-radius: 999px;
-  background: var(--ink);
-  color: var(--paper);
-  font: inherit;
-  font-size: 0.95rem;
-  font-weight: 500;
-  line-height: 1.2;
-  text-decoration: none;
-  cursor: pointer;
-}
-.button:hover { background: var(--clay); border-color: var(--clay); }
-.linklike {
-  padding: 0;
-  border: 0;
-  background: none;
-  color: inherit;
-  font: inherit;
-  text-decoration: underline;
-  text-decoration-color: var(--clay);
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.2em;
-  cursor: pointer;
-}
-
 /* Sections: a hanging heading column next to the content */
 .section { border-top: 1px solid var(--line); padding-block: clamp(2rem, 5vw, 3.5rem); }
 .row { display: grid; gap: 0.5rem 2rem; }
@@ -302,34 +273,6 @@ p.prose + * { margin-top: 1.5rem; }
 /* Footer */
 .site-footer { border-top: 1px solid var(--line); padding-block: 1.75rem 2.5rem; color: var(--mute); font-size: 0.95rem; }
 .site-footer__inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 2rem; }
-.site-footer p a, .site-footer .linklike { margin-right: 1.25rem; }
-.site-footer p a:last-child, .site-footer .linklike:last-child { margin-right: 0; }
-
-/* Analytics consent */
-.consent {
-  position: fixed;
-  right: 1rem;
-  bottom: 1rem;
-  left: 1rem;
-  z-index: 20;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem 1.5rem;
-  max-width: 40rem;
-  margin-inline: auto;
-  padding: 1rem 1.25rem;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: var(--paper);
-  box-shadow: 0 6px 24px rgba(35, 32, 28, 0.12);
-  font-size: 0.95rem;
-  line-height: 1.45;
-}
-.consent[hidden] { display: none; }
-.consent p { flex: 1 1 18rem; }
-.consent__actions { display: flex; gap: 0.5rem; }
 
 /* Narrow screens */
 @media (max-width: 39.99rem) {
@@ -352,5 +295,5 @@ p.prose + * { margin-top: 1.5rem; }
 .page address { margin-top: 1rem; font-style: normal; }
 
 @media print {
-  .site-header, .consent, .hero__portrait { display: none; }
+  .site-header, .hero__portrait { display: none; }
 }
