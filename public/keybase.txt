@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/bicpi
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://philipp-rieber.net
+  * I am bicpi (https://keybase.io/bicpi) on keybase.
+  * I have a public key ASDvquScfnMmfoJr386uKBsFDhZGBAjJ3ielF1LVWBum7Qo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01015287fc192062bb524c731caac63013a87d5be325f2c13186b1f4693d2809f86a0a",
+      "host": "keybase.io",
+      "kid": "0120efaae49c7e73267e826bdfceae281b050e16460408c9de27a51752d5581ba6ed0a",
+      "uid": "6721dc37ec0339b6e464fb42097dd319",
+      "username": "bicpi"
+    },
+    "merkle_root": {
+      "ctime": 1668579458,
+      "hash": "4aa1679f9376ec348e826753e9ac2abc785dd2332b713d4a109fac541576be072f16fdc88fabb710903ab15b58c6242d591c2f38629517e169231491bd89fb71",
+      "hash_meta": "e9ee39884d1f027aa9724d86f3792fec25dabfbafc642b3932c7889290110cdc",
+      "seqno": 23559654
+    },
+    "service": {
+      "entropy": "6/HRiiM8WzFhVQ9cLI/sIxoW",
+      "hostname": "philipp-rieber.net",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "6.0.1"
+  },
+  "ctime": 1668579506,
+  "expire_in": 504576000,
+  "prev": "786a2da098e027390dfa558d478bbc4ef1b8760eda3866d8c804c018e30ec156",
+  "seqno": 49,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEg76rknH5zJn6Ca9/OrigbBQ4WRgQIyd4npRdS1Vgbpu0Kp3BheWxvYWTESpcCMcQgeGotoJjgJzkN+lWNR4u8TvG4dg7aOGbYyATAGOMOwVbEIGS5UZg/rvYFdEkGNOMxbJJ77EY6tToJDVv2LOe0fYnhAgHCo3NpZ8RAT/Z+sxHkaaz14CnbFaMh5KW15iuApDYTz7UjjYUKK3URI5Qe1fahLTOhi0m1BO3Q9DhBjcaP/LLsz3GVIKUhA6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEINfqhqFRx47EOp+zzQvq5F2RPeojfeP4Mbw5VlHaDLcXo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/bicpi
+
+==================================================================

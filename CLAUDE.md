@@ -23,7 +23,7 @@ Preview locally with `python3 -m http.server -d public` (http://localhost:8000).
 - `site.js` only: decodes the obfuscated email (`a.mail` with `data-user`/`data-domain`; never write the address into the HTML), fills the current year, and highlights the nav link of the section in view. Keep it dependency-free.
 - Visits are counted with GoatCounter (one script tag in each page's `<head>`, no cookies, nothing stored in the browser), so there is no consent banner. Add no other third-party request, cookie, storage or tracker, and keep the privacy text in sync with whatever the pages actually load.
 - External links that stop working are turned into plain text, not removed from the content.
-- URLs that must keep working: `/talks/*.pdf`, `/downloads/*.pdf`, `/imprint-and-privacy/`. URLs of the old site that were dropped on purpose may 404.
+- URLs that must keep working: `/talks/*.pdf`, `/downloads/*.pdf`, `/imprint-and-privacy/`, and `/keybase.txt` (a signed Keybase identity proof: keep it byte-identical, never reformat or edit it). Other URLs of the old site were dropped on purpose and may 404.
 - Update `sitemap.xml` when adding or removing a page.
 - The Impressum and privacy text in `public/imprint-and-privacy/` is legal content: change it only deliberately, keep it matching what the site really does, and tell the owner it needs their review (it is not legal advice).
 
