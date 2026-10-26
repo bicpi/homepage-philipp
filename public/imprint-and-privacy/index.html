@@ -15,16 +15,10 @@
   <link rel="preload" href="/fonts/hanken-grotesk.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/styles.css" />
   <script src="/site.js" defer></script>
+  <script data-goatcounter="https://philipp-rieber.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
   <a class="skip" href="#content">Skip to content</a>
-  <div class="consent" id="consent" role="region" aria-label="Analytics consent" hidden>
-    <p>I use Google Analytics to count visits. It only loads if you allow it. <a href="/imprint-and-privacy/#analytics">Details</a></p>
-    <div class="consent__actions">
-      <button type="button" class="button" data-consent="granted">Allow</button>
-      <button type="button" class="button" data-consent="denied">Decline</button>
-    </div>
-  </div>
   <header class="site-header">
     <div class="wrap site-header__inner">
       <a class="brand" href="/" aria-label="Philipp Rieber, back to homepage"><img src="/favicon.svg" width="32" height="32" alt="" /></a>
@@ -50,20 +44,19 @@
       <h2>Privacy</h2>
       <div class="prose">
         <p><strong>Controller:</strong> Philipp Rieber, address and email as in the Impressum above.</p>
-        <p>This is a static website. It has no contact form, no user accounts and no comments, and it does not embed content from other sites. Fonts and images are served from this site itself. The web server of my hosting provider may temporarily log technical data such as your IP address, the date and time, the requested page and browser information. This is needed to deliver the site and to keep it secure (Art. 6 (1) (f) GDPR, legitimate interest).</p>
+        <p>This is a static website. It has no contact form, no user accounts and no comments, it sets no cookies, and apart from the visit counter described below it does not load anything from other sites. Fonts and images are served from this site itself. The web server of my hosting provider may temporarily log technical data such as your IP address, the date and time, the requested page and browser information. This is needed to deliver the site and to keep it secure (Art. 6 (1) (f) GDPR, legitimate interest).</p>
       </div>
 
-      <h2 id="analytics">Google Analytics</h2>
+      <h2 id="statistics">Visit statistics</h2>
       <div class="prose">
-        <p>This website can use Google Analytics 4, a web analytics service of Google Ireland Limited (Gordon House, Barrow Street, Dublin 4, Ireland) and Google LLC (USA) (“Google”), to count visits. Analytics is <strong>off by default</strong>. It is only loaded after you click “Allow” in the notice at the bottom of the page. Until then, no connection to Google is made and no analytics cookies are set.</p>
-        <p>If you allow it, Google Analytics uses cookies to recognize your browser and to analyze how the site is used, for example which pages are viewed, the approximate location, and the device and browser type. According to Google, Google Analytics 4 does not log or store individual IP addresses. The information may be transmitted to Google and stored on servers outside the European Economic Area, including in the USA. Where this happens, the transfer relies on the EU–U.S. Data Privacy Framework and/or standard contractual clauses. On behalf of the operator of this website, Google uses the information to evaluate the use of the site and to compile reports on website activity.</p>
-        <p>The legal basis is your consent (Art. 6 (1) (a) GDPR and § 25 (1) TDDDG). Your choice is saved in your browser’s local storage (entry “analytics-consent”) and is not sent to any server. You can change or withdraw it at any time with “Analytics settings” in the footer. Declining after having allowed analytics removes the analytics cookies from this site. A withdrawal does not affect the lawfulness of the processing before it. You can also prevent the collection of data by Google with the browser add-on available at <a href="https://tools.google.com/dlpage/gaoptout?hl=en" rel="noopener">tools.google.com/dlpage/gaoptout</a>.</p>
-        <p>More information on terms of use and data protection: <a href="https://policies.google.com/privacy" rel="noopener">policies.google.com/privacy</a>.</p>
+        <p>This website uses <a href="https://www.goatcounter.com/" rel="noopener">GoatCounter</a>, a privacy-friendly open-source web analytics service, to count visits. It sets no cookies and stores nothing in your browser. When a page is opened, your browser sends the visited page, the referrer and technical details such as screen width and browser type to GoatCounter. The approximate location is derived from your IP address.</p>
+        <p>According to GoatCounter’s <a href="https://www.goatcounter.com/help/privacy" rel="noopener">privacy policy</a>, it does not store IP addresses and keeps only aggregate counts that cannot be linked to individual visitors. To recognize repeat visits, it holds a combination of IP address and browser information in memory for at most eight hours. The service is operated from Ireland on servers in Finland and Germany, and no information is shared with third parties.</p>
+        <p>The legal basis is my legitimate interest in knowing how this site is used (Art. 6 (1) (f) GDPR). You can object at any time by emailing me, or you can block the script with your browser or a content blocker; the site works the same without it.</p>
       </div>
 
       <h2>Your rights</h2>
       <div class="prose">
-        <p>You have the right to access, rectification, erasure, restriction of processing and data portability, the right to object to processing based on legitimate interests, and the right to withdraw consent at any time. To exercise these rights, contact me by email (see Impressum). You also have the right to lodge a complaint with a data protection supervisory authority, for example the Bayerisches Landesamt für Datenschutzaufsicht (BayLDA), <a href="https://www.lda.bayern.de" rel="noopener">www.lda.bayern.de</a>.</p>
+        <p>You have the right to access, rectification, erasure, restriction of processing and data portability, and the right to object to processing based on legitimate interests. To exercise these rights, contact me by email (see Impressum). You also have the right to lodge a complaint with a data protection supervisory authority, for example the Bayerisches Landesamt für Datenschutzaufsicht (BayLDA), <a href="https://www.lda.bayern.de" rel="noopener">www.lda.bayern.de</a>.</p>
         <p>My blog at <a href="https://blog.philipp-rieber.net/" rel="noopener">blog.philipp-rieber.net</a> is a separate website with its own data processing.</p>
       </div>
     </div>
@@ -72,7 +65,6 @@
   <footer class="site-footer">
     <div class="wrap site-footer__inner">
       <p>© 2013–<span data-year>2026</span> Philipp Rieber</p>
-      <p><button type="button" class="linklike" data-consent-open>Analytics settings</button></p>
     </div>
   </footer>
 

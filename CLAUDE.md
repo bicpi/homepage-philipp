@@ -20,8 +20,8 @@ Preview locally with `python3 -m http.server -d public` (http://localhost:8000).
 - Layout vocabulary: sections use a hanging heading column (`.row`, `.row__head`, `.row__body`); dated lists use `.timeline`, and `.timeline--covers` puts a cover thumbnail (`public/img/covers/`) next to each entry. Covers are small scans (about 130 px wide), so keep them small.
 - The portrait is a transparent cutout (`img/philipp-cutout.webp`); `img/philipp.jpg` is only the `<img>` fallback. The favicon is the serif "P." (`favicon.svg` plus PNG/ICO fallbacks) and doubles as the header badge. `img/og.jpg` is the social preview.
 - Mobile first: check every change at 390 px and 1280 px, in light and dark mode, with no horizontal page scroll.
-- `site.js` only: decodes the obfuscated email (`a.mail` with `data-user`/`data-domain`; never write the address into the HTML), fills the current year, highlights the nav link of the section in view, and loads Google Analytics after consent. Keep it dependency-free.
-- Google Analytics must never load or set cookies before the visitor clicks Allow (consent notice in the page, choice in `localStorage`, Decline as prominent as Allow). Add no other third-party request, cookie or tracker.
+- `site.js` only: decodes the obfuscated email (`a.mail` with `data-user`/`data-domain`; never write the address into the HTML), fills the current year, and highlights the nav link of the section in view. Keep it dependency-free.
+- Visits are counted with GoatCounter (one script tag in each page's `<head>`, no cookies, nothing stored in the browser), so there is no consent banner. Add no other third-party request, cookie, storage or tracker, and keep the privacy text in sync with whatever the pages actually load.
 - External links that stop working are turned into plain text, not removed from the content.
 - URLs that must keep working: `/talks/*.pdf`, `/downloads/*.pdf`, `/imprint-and-privacy/`. URLs of the old site that were dropped on purpose may 404.
 - Update `sitemap.xml` when adding or removing a page.
