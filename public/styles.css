@@ -215,6 +215,13 @@ h3.row__head { font-size: 1.2rem; color: var(--mute); }
 .prose p + p { margin-top: 1em; }
 p.prose + * { margin-top: 1.5rem; }
 .nowrap { white-space: nowrap; }
+.prose .era { margin-bottom: 0.6em; color: var(--mute); font-size: 0.95rem; }
+.points li + li { margin-top: 0.9em; }
+.prose .books { margin-top: 1.25rem; }
+.books li { padding-block: 0.3rem; line-height: 1.4; }
+.books cite { font-style: normal; font-weight: 500; }
+.books span { display: block; color: var(--mute); font-size: 0.95rem; }
+@media (min-width: 40rem) { .books { columns: 2; column-gap: 2rem; } .books li { break-inside: avoid; } }
 
 /* Skills */
 .skills { display: flex; flex-wrap: wrap; gap: 0.3rem 1.1rem; }
@@ -245,7 +252,6 @@ p.prose + * { margin-top: 1.5rem; }
   .timeline li { grid-template-columns: 7.5rem minmax(0, 1fr); }
   .timeline time { padding-top: 0.15rem; }
 }
-#talks .row__body .timeline { margin-top: 0; }
 
 /* Publications: the cover sits right next to its entry */
 .timeline--covers li { align-items: center; }
