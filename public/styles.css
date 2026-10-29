@@ -163,9 +163,9 @@ main:focus { outline: none; }
   grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
   align-items: end;
   gap: clamp(1.5rem, 5vw, 4rem);
-  padding-top: clamp(2rem, 6vw, 4.5rem);
+  padding-top: clamp(1rem, 3vw, 2.25rem);
 }
-.hero__text { padding-bottom: clamp(2.5rem, 6vw, 5rem); }
+.hero__text { align-self: center; padding-bottom: clamp(1rem, 3vw, 2.5rem); }
 .hero h1 {
   font-family: var(--serif);
   font-size: clamp(2.1rem, 4.2vw, 3.1rem);
@@ -182,7 +182,7 @@ main:focus { outline: none; }
   line-height: 1.4;
 }
 .hero__meta { margin-top: 1rem; color: var(--mute); }
-.hero__portrait { display: block; justify-self: end; width: 100%; max-width: 34rem; }
+.hero__portrait { display: block; justify-self: end; width: 100%; max-width: 26rem; }
 .hero__portrait img {
   width: 100%;
   /* Transparent cutout: a soft shadow grounds the figure on the paper. */
@@ -215,8 +215,8 @@ h3.row__head { font-size: 1.2rem; color: var(--mute); }
 .prose p + p { margin-top: 1em; }
 p.prose + * { margin-top: 1.5rem; }
 .nowrap { white-space: nowrap; }
+.more { max-width: var(--measure); margin-top: 1rem; color: var(--mute); font-size: 0.95rem; line-height: 1.5; }
 .prose .era { margin-bottom: 0.6em; color: var(--mute); font-size: 0.95rem; }
-.points li + li { margin-top: 0.9em; }
 .prose .books { margin-top: 1.25rem; }
 .books li { padding-block: 0.3rem; line-height: 1.4; }
 .books cite { font-style: normal; font-weight: 500; }
@@ -235,6 +235,9 @@ p.prose + * { margin-top: 1.5rem; }
 .certs .cert { display: flex; align-items: center; gap: 1rem; max-width: 20rem; text-decoration: none; }
 .certs a.cert:hover span { text-decoration: underline; text-decoration-color: var(--clay); }
 .certs img { flex: none; height: 4rem; width: auto; }
+.certs--small { gap: 0.75rem 2rem; }
+.certs--small .cert { gap: 0.75rem; font-size: 0.95rem; line-height: 1.35; }
+.certs--small img { height: 2.5rem; }
 
 /* Dated lists */
 .timeline { margin-top: 1.5rem; }
@@ -272,6 +275,11 @@ p.prose + * { margin-top: 1.5rem; }
 @media (min-width: 40rem) {
   .timeline--covers li { grid-template-columns: 7.5rem 4.75rem minmax(0, 1fr); column-gap: 1.25rem; }
 }
+
+/* Several small covers fanned out in one cover column */
+.cover--stack { display: flex; align-items: center; }
+.cover--stack img { height: 3.4rem; width: auto; }
+.cover--stack img + img { margin-left: -1.5rem; }
 
 /* Contact */
 .contact__mail { font-family: var(--serif); font-size: 1.35rem; line-height: 1.3; }
